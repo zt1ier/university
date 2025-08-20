@@ -4,18 +4,15 @@
 
 
 int main() {
-    char code1, code2, code3;
-    float price1, price2, price3;
+    char code1 = 'A';
+    char code2 = 'B';
+    char code3 = 'C';
     
-    code1 = 'A';
-    code2 = 'B';
-    code3 = 'C';
+    float price1 = 1000.0;
+    float price2 = 5975.90;
+    float price3 = 900.25;
     
-    price1 = 1000.0;
-    price2 = 5975.90;
-    price3 = 900.25;
-    
-    printf("no table:\n");
+    printf("no table:\n\n");
     
     printf("Code\tDescription\t\tPrice\n");
     printf("%c\t\tBag\t\t\t\t%.2f\n", code1, price1);
@@ -24,10 +21,10 @@ int main() {
     
     printf("\n\n\n\n");
     
-    printf("yes table:\n");
+    printf("yes table:\n\n");
     
     printf("Code\t|\tDescription\t|\tPrice\n");
-    printf("----------------------------------\n");
+    printf("——————————————————————————————————\n");
     printf("%c\t\t|\tBag\t\t\t|\t%.2f\n", code1, price1);
     printf("%c\t\t|\tCabinet\t\t|\t%.2f\n", code2, price2);
     printf("%c\t\t|\tJeans\t\t|\t%.2f", code3, price3);
