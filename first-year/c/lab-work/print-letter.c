@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 
+
 int main() {
     char char1, char2;
     
