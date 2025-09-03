@@ -26,7 +26,7 @@ int main() {
 
     pennies = remainder;
 
-    // modulo operator (%) gets the remainder when dividing
+    // modulo operator (%) is basically division but gets the remainder instead of quotient
 
     printf("\n%d cents can be given as", input);
     printf("\n%d quarter(s) %d dime(s) and %d penny (pennies)", quarters, dimes, pennies);
