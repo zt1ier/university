@@ -29,8 +29,8 @@ int main() {
     // no for-loop, hardcoding hurts :(
 
     // output
-    printf("\nBalance at the end of 1 year with a 3.5%% quarterly compound interest: %.2f", 
-        endingBalance);
+    printf("\nBalance at the end of 1 year with a %.1f%% quarterly compound interest: %.2f", 
+        interestRate * 100, endingBalance);
 
     return 0;
 }
