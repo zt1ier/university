@@ -22,10 +22,10 @@ int main() {
     // math
     quarterlyInterest = interestRate / compoundingPeriods;
 
-    endingBalance = beginningBalance + beginningBalance * quarterlyInterest;    // quarter 1
-    endingBalance = endingBalance + endingBalance * quarterlyInterest;          // quarter 2
-    endingBalance = endingBalance + endingBalance * quarterlyInterest;          // quarter 3
-    endingBalance = endingBalance + endingBalance * quarterlyInterest;          // quarter 4
+    endingBalance = beginningBalance + (beginningBalance * quarterlyInterest);    // quarter 1
+    endingBalance = endingBalance + (endingBalance * quarterlyInterest);          // quarter 2
+    endingBalance = endingBalance + (endingBalance * quarterlyInterest);          // quarter 3
+    endingBalance = endingBalance + (endingBalance * quarterlyInterest);          // quarter 4
     // no for-loop, hardcoding hurts :(
 
     // output
