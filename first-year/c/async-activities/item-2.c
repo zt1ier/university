@@ -1,33 +1,27 @@
-// August 29, 2025
+// *August 29, 2025* September 4, 2025
 
 #include <stdio.h>
 
 
 int main() {
-
-    // 7.6% retroactive pay for the past 6 months
-    // input: previous annual salary
-    // output: amount of retroactive pay, new monthly salary, and new annual salary
-
+    
     const float retroactiveIncrease = 0.076; // 7.6%
     const int pastMonths = 6;
 
-    float prevAnnualSalary, newMonthlySalary, newAnnualSalary, retroactivePayDue, retroactivePayAmount;
+    float prevAnnualSalary, newAnnualSalary, newMonthlySalary, retroactivePay;
 
     printf("\nEnter previous annual salary: ");
     scanf("%f", &prevAnnualSalary);
 
-    retroactivePayDue = (prevAnnualSalary * retroactiveIncrease) * pastMonths;
+    newAnnualSalary = prevAnnualSalary * (1 + retroactiveIncrease);
+    newMonthlySalary = newAnnualSalary / 12;
 
-    retroactivePayAmount = prevAnnualSalary + retroactivePayDue;
+    // calculate retroactive pay
+    retroactivePay = (newAnnualSalary - prevAnnualSalary) / 12 * pastMonths;
 
-    newMonthlySalary = prevAnnualSalary + (prevAnnualSalary * retroactiveIncrease);
-    newAnnualSalary = newMonthlySalary * 12;
-
-    printf("\nRetroactive pay next payroll: %.2f", retroactivePayAmount);
-
+    printf("\nRetroactive pay next payroll: %.2f", retroactivePay);
     printf("\nNew annual salary: %.2f", newAnnualSalary);
-    printf("\nNew monthly salary: %.2f", newMonthlySalary);
+    printf("\nNew monthly salary: %.2f\n", newMonthlySalary);
 
     return 0;
 }
