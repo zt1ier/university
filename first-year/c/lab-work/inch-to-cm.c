@@ -3,27 +3,71 @@
 #include <stdio.h>
 
 
-float convert(int inches) {
-    const float INCH_TO_CENTIMETER = 2.54;
-    float centimeters;
-    
-    centimeters = (float)inches * INCH_TO_CENTIMETER;
+// --- FUNCTION DECLARATIONS ---
+void getData(int *a, int *b);
+int add(int a, int b);
+int subtract(int a, int b);
+int multiply(int a, int b);
+void divide(int a, int b, float *quot, int *rem);
+int modulo(int a, int b);
+void printRes(int a, int b, int sum, int diff, int prod, float quot, int mod);
 
-    return centimeters;
+
+// --- MAIN ---
+int main() {
+
+    int a, b;
+    int sum = 0, difference = 0, product = 0, remainder = 0;
+    float quotient;
+
+    getData(&a, &b);
+
+    sum = add(a, b);
+    difference = subtract(a, b);
+    product = multiply(a, b);
+    
+    divide(a, b, &quotient, &remainder);
+
+    printRes(a, b, sum, difference, product, quotient, remainder);
+
+    return 0;
 }
 
 
-int main() {
+// --- FUNCTION DEFINITIONS ---
+void getData(int *a, int *b) {
+    printf("Please enter two integer numbers (separated by spaces): ");
+    scanf("%d %d", a, b);
+    return;
+}
 
-    int inches;
-    float centimeters;
 
-    printf("Input a measure in inches: ");
-    scanf("%d", &inches);
+int add(int a, int b) {
+    return a + b;
+}
 
-    centimeters = convert(inches);
 
-    printf("%d inches is %.2f centimeters.", inches, centimeters);
+int subtract(int a, int b) {
+    return a - b;
+}
 
-    return 0;
+
+int multiply(int a, int b) {
+    return a * b;
+}
+
+
+void divide(int a, int b, float *quot, int *rem) {
+    *quot = (float)a / (float)b;
+    *rem = a % b;
+}
+
+
+void printRes(int a, int b, int sum, int diff, int prod, float quot, int rem) {
+    printf("%d + %d = %d\n", a, b, sum);
+    printf("%d - %d = %d\n", a, b, diff);
+    printf("%d * %d = %d\n", a, b, prod);
+    printf("%d / %d = %.2f\n", a, b, quot);
+    printf("%d %% %d = %d\n", a, b, rem);
+    return;
 }
