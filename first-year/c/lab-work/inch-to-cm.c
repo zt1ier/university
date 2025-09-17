@@ -3,39 +3,27 @@
 #include <stdio.h>
 
 
-int getNum(int num) {
-    scanf("%d", &num);
-    return num;
-}
+float convert(int inches) {
+    const float INCH_TO_CENTIMETER = 2.54;
+    float centimeters;
+    
+    centimeters = (float)inches * INCH_TO_CENTIMETER;
 
-
-void printForward(int x, int y, int z) {
-    printf("\nForward: %d, %d, %d", x, y, z);
-    return;
-}
-
-
-void printReversed(int x, int y, int z) {
-    printf("\nReversed: %d, %d, %d", z, y, x);
-    return;    
+    return centimeters;
 }
 
 
 int main() {
 
-    int x, y, z;
+    int inches;
+    float centimeters;
 
-    printf("Input the first integer: ");
-    x = getNum(x);
+    printf("Input a measure in inches: ");
+    scanf("%d", &inches);
 
-    printf("Input the second integer: ");
-    y = getNum(y);
+    centimeters = convert(inches);
 
-    printf("Input the third integer: ");
-    z = getNum(z);
-
-    printForward(x, y, z);
-    printReversed(x, y, z);
+    printf("%d inches is %.2f centimeters.", inches, centimeters);
 
     return 0;
 }
