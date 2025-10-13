@@ -62,6 +62,8 @@ char *masterList[] = {
     "Ybanez",
 };
 
+int groupedCount = 0;
+
 
 int main() {
 
@@ -77,15 +79,12 @@ int main() {
     printf("\nMembers per group: %d", membersPerGroup);
 
     char *alreadyGrouped[masterListSize];
+    for (int i = 0; i < masterListSize; i++) {
+        alreadyGrouped[i] = NULL;
+    }
 
     for (int i = 1; i <= numOfGroups; i++) {
-
-        //printf("\n\nGetting Group %d...", i);
-
-        alreadyGrouped[i] = NULL;
-
         getGroup(i, membersPerGroup, masterList, masterListSize, alreadyGrouped); // i is group number
-
     }
 }
 
@@ -112,7 +111,8 @@ char* getMember(char *masterList[], int masterListSize, char *alreadyGrouped[], 
     if ( isInGroup(member, alreadyGrouped) ) {
         member = getMember(masterList, masterListSize, alreadyGrouped, idx);
     } else {
-        alreadyGrouped[idx] = member;
+        alreadyGrouped[groupedCount] = member;
+        groupedCount++;
     }
 
     return member;
