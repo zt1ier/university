@@ -13,6 +13,52 @@ char *masterList[] = {
     "Name1",
     "Name2",
     "Name3",
+    "Name4",
+    "Name5",
+    "Name6",
+    "Name7",
+    "Name8",
+    "Name9",
+    "Name10",
+    "Name11",
+    "Name12",
+    "Name13",
+    "Name14",
+    "Name15",
+    "Name16",
+    "Name17",
+    "Name18",
+    "Name19",
+    "Name20",
+    "Name21",
+    "Name22",
+    "Name23",
+    "Name24",
+    "Name25",
+    "Name26",
+    "Name27",
+    "Name28",
+    "Name29",
+    "Name30",
+    "Name31",
+    "Name32",
+    "Name33",
+    "Name34",
+    "Name35",
+    "Name36",
+    "Name37",
+    "Name38",
+    "Name39",
+    "Name40",
+    "Name41",
+    "Name42",
+    "Name43",
+    "Name44",
+    "Name45",
+    "Name46",
+    "Name47",
+    "Name48",
+    "Name49",
 };
 
 int groupedCount = 0;
@@ -28,8 +74,9 @@ int main() {
 
     int masterListSize = sizeof(masterList) / sizeof(masterList[0]);
     int membersPerGroup = masterListSize / numOfGroups;
+    int remainder = masterListSize % numOfGroups;
 
-    printf("\nMembers per group: %d", membersPerGroup);
+    //printf("\nMembers per group: %d", membersPerGroup);
 
     char *alreadyGrouped[masterListSize];
     for (int i = 0; i < masterListSize; i++) {
@@ -37,18 +84,19 @@ int main() {
     }
 
     for (int i = 1; i <= numOfGroups; i++) {
-        getGroup(i, membersPerGroup, masterList, masterListSize, alreadyGrouped); // i is group number
+        int groupSize = membersPerGroup + (i <= remainder ? 1 : 0);
+        getGroup(i, groupSize, masterList, masterListSize, alreadyGrouped); // i is group number
     }
 }
 
 
-void getGroup(int groupNum, int membersPerGroup, char *masterList[], int masterListSize, char *alreadyGrouped[]) {
+void getGroup(int groupNum, int groupSize, char *masterList[], int masterListSize, char *alreadyGrouped[]) {
 
-    char *group[membersPerGroup];
+    char *group[groupSize];
     
-    printf("\nGroup %d:", groupNum);
+    printf("\nGroup %d (%d members):", groupNum, groupSize);
 
-    for (int i = 1; i <= membersPerGroup; i++) {
+    for (int i = 1; i <= groupSize; i++) {
 
         group[i] = getMember(masterList, masterListSize, alreadyGrouped, i);
         printf("\n- %s", group[i]);
